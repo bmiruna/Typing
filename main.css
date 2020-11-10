@@ -15,6 +15,7 @@
     background-color: slateblue;
     width: 100%;
 }
+
 .divider-text {
     position: relative;
     text-align: center;
@@ -44,3 +45,14 @@
     background-color: #42AEEC;
     color: #fff;
 }
+
+.error {
+	color: #ee0000;
+	padding: 0px;
+	background: none;
+}
+
+
+
+
+
