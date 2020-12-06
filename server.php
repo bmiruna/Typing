@@ -75,11 +75,11 @@ if(isset($_POST['register-btn'])){
             // login automatically
 
             // id of last inserted
-            $userId = $conn->insert_id;
-            $_SESSION['id'] = $userId;
-            $_SESSION['username'] = $username;
-            $_SESSION['email'] = $email;
-            $_SESSION['verified'] = $verified;
+            // $userId = $conn->insert_id;
+            // $_SESSION['id'] = $userId;
+            // $_SESSION['username'] = $username;
+            // $_SESSION['email'] = $email;
+            // $_SESSION['verified'] = $verified;
 
             // After login, send a verification email to the user's email
 
@@ -88,7 +88,7 @@ if(isset($_POST['register-btn'])){
             // redirect
             $_SESSION['message'] = "You are logged in";
             $_SESSION['alert-class'] = "alert-success";
-            header('location: index.php');
+            header('location: signin.php');
             exit();
 
         } else{
