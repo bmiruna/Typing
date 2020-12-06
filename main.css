@@ -37,22 +37,21 @@
     left: 0;
     z-index: 1;
 }
-.btn-facebook {
-    background-color: #405D9D;
-    color: #fff;
+
+.errors {
+    width: 92%; 
+    margin: 0px auto; 
+    padding: 10px; 
+    border: 1px solid #a94442; 
+    color: #a94442; 
+    background: #f2dede; 
+    border-radius: 5px; 
+    text-align: left;
+  }
+.success {
+color: #3c763d; 
+background: #dff0d8; 
+border: 1px solid #3c763d;
+margin-bottom: 20px;
 }
-.btn-twitter {
-    background-color: #42AEEC;
-    color: #fff;
-}
-
-.error {
-	color: #ee0000;
-	padding: 0px;
-	background: none;
-}
-
-
-
-
 

@@ -1,3 +1,21 @@
+<?php 
+  require_once 'server.php';
+
+  if(!isset($_SESSION['id'])){
+    header('location: signin.php');
+  }
+
+  if(isset($_GET['token'])){
+    $token = $_GET['token'];
+    verifyUser($token);
+  }
+
+  if(isset($_GET['password-token'])){
+    $passToken = $_GET['password-token'];
+    resetPassword($passToken);
+  }
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,6 +28,7 @@
         
         <!-- My CSS -->
         <link rel="stylesheet" href="main.css">
+
       </head>
     <body>
 
@@ -38,11 +57,42 @@
                       <a class="nav-link" href="signin.php" target="_blank">Sign in</a>
                     </li>
                 </ul>
-          </div>
+              </div>
         </nav>
 
         <!-- Content -->   
-        
+
+        <div class="container">
+          <!-- notification message -->
+          <?php if (isset($_SESSION['message'])) { ?>
+            <div class="alert alert-success">
+              <h3>
+                <?php 
+                  echo $_SESSION['message']; 
+                  unset($_SESSION['message']);
+                ?>
+              </h3>
+            </div>
+          <?php } ?>
+
+          <!-- logged in user information -->
+          <?php  if (isset($_SESSION['username'])) { ?>
+            <p>Welcome, <strong><?php echo $_SESSION['username'].'!'; ?></strong></p>
+            <p> <a href="index.php?logout=1" style="color: red;">Logout</a> </p>
+          <?php } ?>
+
+          <?php if(!$_SESSION['verified']){ ?>
+            <div class="alert alert-warning">
+              A confirmation email was sent to <b><?php echo $_SESSION['email']; ?></b>. Check your email address and click on the verification link.
+            </div>
+          <?php } ?>
+
+          <?php if($_SESSION['verified']){ ?>
+            <button class="btn btn-primary">I am verified</button>
+          <?php } ?>
+
+        </div>
+		
 
         <!-- Bootstrap Scripts -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

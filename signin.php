@@ -1,3 +1,4 @@
+<?php require_once 'server.php' ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,15 +24,11 @@
             <div class="jumbotron register_box">
                 <h2 class="register_title">Sign in</h2>
                     
-                <form method="post" name="signInForm" action="">
-
-                <?php if(!empty($loginResult)){?>
-				<div class="error-msg"><?php echo $loginResult;?></div>
-				<?php }?>
-
+                <form method="post" name="signInForm" action="signin.php">
+                <?php require_once 'errors.php'; ?>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required="required">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required="required" value="<?php echo $username; ?>">
                 </div>
                 <div class="form-group">
                     <label for="password">Password<span class="error required" id="password-info"></span></label>
@@ -39,18 +36,15 @@
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
-                    <label class="form-check-label" for="arememberMe"><span><span></span></span>Remember me</label>
+                    <label class="form-check-label" for="rememberMe"><span><span></span></span>Remember me</label>
                 </div>
                  <button type="submit" class="btn btn-primary submit" name="signin-btn">Sign in</button>
                  <p class="divider-text">
                     <span class="bg-light">OR</span>
                 </p>
-                <p>
-                    <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Sign in via Twitter</a>
-                    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Sign in via Facebook</a>
-                </p>
+              
                 <p class="text-center">Don't have an account? <a href="register.php">Sign up</a> </p> 
-                <p class="text-center"><a href="">Forgot your password?</a></p> 
+                <p class="text-center"><a href="forgotPass.php">Forgot your password?</a></p> 
             </form>
             </div>
         </div>
