@@ -151,7 +151,7 @@ if(isset($_GET['logout'])){
     unset($_SESSION['verified']);
     unset($_SESSION['message']);
 
-    header('location: signin.php');
+    header('location: index.php');
     exit();
 }
 
@@ -251,6 +251,34 @@ function resetPassword($token){
     $_SESSION['email'] = $user['email'];
     header('location: reset_password.php');
     exit();
+
+}
+
+if(isset($_POST['save-btn'])){
+
+
+    $scor = mysqli_real_escape_string($conn, $_POST['scor']);
+    $time = mysqli_real_escape_string($conn, $_POST['timer']);
+    $userId = $_SESSION['id'];
+
+    if(empty($scor)){
+        echo "Score field is empty";
+    } else if(empty($time)){
+        echo "Time field is empty";
+    } else {
+
+    
+    $query = "INSERT INTO scores (score, time, user_id) VALUES ('$scor', '$time', '$userId')";
+
+    if(mysqli_query($conn, $query)){
+        header('location: ../practice.php');
+        exit();
+    } else {
+        echo "Failed";
+    }
+
+   //header('location: ../practice.php?time='.$time.'&score='.$_POST['myScore']);
+    }
 
 }
 

@@ -55,3 +55,51 @@ border: 1px solid #3c763d;
 margin-bottom: 20px;
 }
 
+
+/* Practice CSS */
+
+.details{
+    height: 500px;
+    padding-top: 7em;
+    border: 3px solid #55bfe0;
+    
+}
+
+table{
+    width: 80%;
+    height: 200px;
+}
+
+.profile{
+    width: 80%;
+    margin-top: 6%;
+    position: absolute;
+    left: 15%;
+    top: 7%;
+
+   
+}
+
+.info{
+    width:30%;
+    height: 50%;
+    position: absolute;
+    left: 10%;
+    top: 20%;
+}
+
+.score-table{
+    position: absolute;
+    right: 10%;
+    top: 30%;
+}
+
+#profile-title{
+    margin-bottom: 10%;
+}
+
+/* Home */
+
+.photos{
+    margin-top: 5%;
+}
